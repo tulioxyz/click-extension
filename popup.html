@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Clicker em Lote</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Topo -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="logo-icon">⚡</div>
+        <div class="logo-text">
+          <h1>Auto Clicker</h1>
+          <span class="badge">Em Lote</span>
+        </div>
+      </div>
+      <p class="subtitle">Automatize cliques em botões repetitivos da tabela</p>
+    </header>
+
+    <!-- Escolha do Modo -->
+    <div class="mode-tabs">
+      <button class="tab-btn active" id="tab-picker" data-mode="picker">
+        <span class="tab-icon">🎯</span> Selecionar na Tela
+      </button>
+      <button class="tab-btn" id="tab-position" data-mode="position">
+        <span class="tab-icon">🔢</span> Por Posição
+      </button>
+    </div>
+
+    <!-- Painel 1: Selecionar na Tela (Recomendado) -->
+    <div class="tab-content" id="panel-picker">
+      <div class="guide-box">
+        <p class="guide-text">
+          <strong>Como funciona:</strong> Clique no botão abaixo e depois clique no ícone que você quer acionar na tabela (ex: na lixeira da 1ª pessoa).
+        </p>
+        <button class="btn btn-secondary btn-block" id="btn-start-picker">
+          🎯 Mirar e Selecionar na Página
+        </button>
+        <div id="picker-result" class="picker-result hidden">
+          <span class="check-icon">✓</span> <span id="picker-result-text">Alvo selecionado!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel 2: Por Posição -->
+    <div class="tab-content hidden" id="panel-position">
+      <div class="position-guide">
+        <label class="section-label">Selecione qual botão clicar na linha:</label>
+        <div class="icon-selector-grid">
+          <button class="icon-choice-card active" data-index="0" title="1º botão de ações">
+            <span class="choice-icon">✏️</span>
+            <span class="choice-name">1º Botão</span>
+            <span class="choice-sub">Lápis</span>
+          </button>
+          <button class="icon-choice-card" data-index="1" title="2º botão de ações">
+            <span class="choice-icon">✉️</span>
+            <span class="choice-name">2º Botão</span>
+            <span class="choice-sub">Envelope 1</span>
+          </button>
+          <button class="icon-choice-card" data-index="2" title="3º botão de ações">
+            <span class="choice-icon">📨</span>
+            <span class="choice-name">3º Botão</span>
+            <span class="choice-sub">Envelope 2</span>
+          </button>
+          <button class="icon-choice-card" data-index="3" title="4º botão de ações">
+            <span class="choice-icon">✖️</span>
+            <span class="choice-name">4º Botão</span>
+            <span class="choice-sub">Cancelar (X)</span>
+          </button>
+          <button class="icon-choice-card" data-index="4" title="5º botão de ações">
+            <span class="choice-icon">🗑️</span>
+            <span class="choice-name">5º Botão</span>
+            <span class="choice-sub">Lixeira</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configurações Rápidas -->
+    <div class="settings-card">
+      <div class="settings-grid">
+        <div class="setting-item">
+          <label for="clicks-per-row">Cliques por pessoa</label>
+          <div class="input-wrap">
+            <input type="number" id="clicks-per-row" min="1" max="10" value="1">
+            <span class="unit">clique(s)</span>
+          </div>
+        </div>
+        <div class="setting-item">
+          <label for="delay-input">Tempo de espera</label>
+          <div class="input-wrap">
+            <input type="number" id="delay-input" min="200" max="10000" step="100" value="1000">
+            <span class="unit">ms</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkbox-row">
+        <label class="checkbox-container">
+          <input type="checkbox" id="chk-auto-confirm" checked>
+          <span class="checkmark"></span>
+          <span class="label-text">Auto-confirmar mensagens (Ex: "Tem certeza?")</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="status-summary" id="status-summary">
+      <div class="status-indicator"></div>
+      <span id="status-text">Pronto para detectar</span>
+    </div>
+
+    <!-- Ações Principais -->
+    <div class="actions-group">
+      <button class="btn btn-outline" id="btn-preview" title="Destaca na tela os botões que serão clicados para você conferir antes">
+        🔍 Destacar na Tela
+      </button>
+      <button class="btn btn-primary" id="btn-start">
+        ▶ Iniciar Cliques
+      </button>
+      <button class="btn btn-danger hidden" id="btn-stop">
+        ⏹ Parar Execução
+      </button>
+    </div>
+
+    <!-- Progresso -->
+    <div class="progress-section hidden" id="progress-section">
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-labels">
+        <span id="progress-count">0 de 0</span>
+        <span id="progress-percent">0%</span>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span>Painel flutuante arrastável na tela (ESC para parar)</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

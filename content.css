@@ -1,0 +1,480 @@
+/* content.css - Estilos do Painel Flutuante 100% Arrastável na Tela */
+
+/* Destaque pulsante dos botões que serão clicados */
+.batch-clicker-highlight {
+  outline: 3px solid #ef4444 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.85) !important;
+  background-color: rgba(239, 68, 68, 0.25) !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+  animation: batch-pulse 1.2s infinite alternate !important;
+}
+
+@keyframes batch-pulse {
+  from {
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.4);
+    transform: scale(1);
+  }
+  to {
+    box-shadow: 0 0 16px rgba(239, 68, 68, 0.95);
+    transform: scale(1.1);
+  }
+}
+
+/* Indicador de clique ativo no momento */
+.batch-clicker-clicking-now {
+  outline: 3px solid #10b981 !important;
+  background-color: rgba(16, 185, 129, 0.4) !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.95) !important;
+  transform: scale(1.2) !important;
+}
+
+/* Modo Mira (Hover) */
+.batch-clicker-picker-hover {
+  outline: 3px dashed #6366f1 !important;
+  outline-offset: 3px !important;
+  background-color: rgba(99, 102, 241, 0.3) !important;
+  cursor: crosshair !important;
+}
+
+/* =========================================================
+   PAINEL PRINCIPAL FLUTUANTE E ARRASTÁVEL
+   ========================================================= */
+#batch-clicker-panel {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  width: 340px !important;
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 0 1px #334155 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  box-sizing: border-box !important;
+  user-select: none !important;
+  overflow: hidden !important;
+  transition: box-shadow 0.2s ease !important;
+}
+
+#batch-clicker-panel * {
+  box-sizing: border-box !important;
+}
+
+#batch-clicker-panel.batch-panel-dragging {
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85), 0 0 0 2px #6366f1 !important;
+  opacity: 0.96 !important;
+}
+
+/* Cabeçalho com alça de arraste */
+.batch-panel-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: #1e293b !important;
+  padding: 10px 14px !important;
+  border-bottom: 1px solid #334155 !important;
+  cursor: grab !important;
+}
+
+.batch-panel-header:active {
+  cursor: grabbing !important;
+}
+
+.batch-panel-title-area {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  color: #ffffff !important;
+  pointer-events: none !important;
+}
+
+.batch-panel-drag-icon {
+  color: #94a3b8 !important;
+  font-size: 14px !important;
+  letter-spacing: -2px !important;
+}
+
+.batch-panel-header-buttons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.batch-header-btn {
+  background: #334155 !important;
+  border: none !important;
+  color: #cbd5e1 !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.batch-header-btn:hover {
+  background: #475569 !important;
+  color: #ffffff !important;
+}
+
+.batch-header-btn.close-btn:hover {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+/* Corpo do painel */
+.batch-panel-content {
+  padding: 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  max-height: calc(100vh - 120px) !important;
+  overflow-y: auto !important;
+}
+
+/* Tabs */
+.batch-tabs {
+  display: flex !important;
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  border-radius: 6px !important;
+  padding: 3px !important;
+}
+
+.batch-tab {
+  flex: 1 !important;
+  background: transparent !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  padding: 6px 8px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  transition: all 0.15s ease !important;
+}
+
+.batch-tab:hover {
+  color: #ffffff !important;
+}
+
+.batch-tab.active {
+  background: #4f46e5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4) !important;
+}
+
+/* Painel da Mira */
+.batch-picker-box {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.batch-picker-desc {
+  font-size: 11.5px !important;
+  color: #cbd5e1 !important;
+  line-height: 1.4 !important;
+}
+
+.batch-picker-desc strong {
+  color: #818cf8 !important;
+}
+
+.batch-picker-result {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+  color: #6ee7b7 !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+/* Painel por Posição */
+.batch-position-box {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+}
+
+.batch-pos-label {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  margin-bottom: 6px !important;
+  font-weight: 600 !important;
+}
+
+.batch-pos-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 4px !important;
+}
+
+.batch-pos-btn {
+  background: #0f172a !important;
+  border: 1px solid #334155 !important;
+  border-radius: 6px !important;
+  padding: 6px 2px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 2px !important;
+  color: #f8fafc !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.batch-pos-btn:hover {
+  background: #334155 !important;
+}
+
+.batch-pos-btn.active {
+  border-color: #4f46e5 !important;
+  background: rgba(79, 70, 229, 0.25) !important;
+  box-shadow: 0 0 0 1px #4f46e5 !important;
+}
+
+.batch-pos-icon { font-size: 14px !important; }
+.batch-pos-num { font-size: 9px !important; font-weight: 700 !important; }
+.batch-pos-name { font-size: 8px !important; color: #94a3b8 !important; }
+
+/* Configurações */
+.batch-settings-box {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.batch-settings-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+}
+
+.batch-field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+}
+
+.batch-field label {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #cbd5e1 !important;
+}
+
+.batch-input-wrap {
+  display: flex !important;
+  align-items: center !important;
+  background: #0f172a !important;
+  border: 1px solid #334155 !important;
+  border-radius: 6px !important;
+  padding: 4px 6px !important;
+}
+
+.batch-input-wrap input {
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  outline: none !important;
+}
+
+.batch-unit {
+  font-size: 10.5px !important;
+  color: #94a3b8 !important;
+  white-space: nowrap !important;
+}
+
+.batch-checkbox-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 11px !important;
+  color: #cbd5e1 !important;
+  cursor: pointer !important;
+}
+
+.batch-checkbox-row input {
+  accent-color: #4f46e5 !important;
+  cursor: pointer !important;
+}
+
+/* Status */
+.batch-status-bar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(30, 41, 59, 0.7) !important;
+  border: 1px solid #334155 !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  font-size: 11.5px !important;
+  color: #94a3b8 !important;
+}
+
+.batch-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #f59e0b !important;
+  box-shadow: 0 0 6px #f59e0b !important;
+  flex-shrink: 0 !important;
+}
+
+.batch-dot.ready {
+  background: #10b981 !important;
+  box-shadow: 0 0 6px #10b981 !important;
+}
+
+.batch-dot.busy {
+  background: #4f46e5 !important;
+  box-shadow: 0 0 6px #4f46e5 !important;
+  animation: batch-pulse-dot 1s infinite alternate !important;
+}
+
+@keyframes batch-pulse-dot {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Botões de Ação */
+.batch-actions-row {
+  display: flex !important;
+  gap: 8px !important;
+}
+
+.batch-btn {
+  flex: 1 !important;
+  padding: 8px 10px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  border: none !important;
+  transition: all 0.15s ease !important;
+}
+
+.batch-btn-primary {
+  background: #4f46e5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4) !important;
+}
+
+.batch-btn-primary:hover {
+  background: #4338ca !important;
+}
+
+.batch-btn-secondary {
+  background: #2563eb !important;
+  color: #ffffff !important;
+}
+
+.batch-btn-secondary:hover {
+  background: #1d4ed8 !important;
+}
+
+.batch-btn-outline {
+  background: transparent !important;
+  border: 1px solid #334155 !important;
+  color: #f8fafc !important;
+}
+
+.batch-btn-outline:hover {
+  background: #1e293b !important;
+  border-color: #64748b !important;
+}
+
+.batch-btn-danger {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4) !important;
+}
+
+.batch-btn-danger:hover {
+  background: #dc2626 !important;
+}
+
+.batch-btn-block {
+  width: 100% !important;
+}
+
+/* Barra de Progresso */
+.batch-progress-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+}
+
+.batch-progress-track {
+  height: 6px !important;
+  background: #1e293b !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  border: 1px solid #334155 !important;
+}
+
+.batch-progress-fill {
+  height: 100% !important;
+  width: 0% !important;
+  background: linear-gradient(90deg, #4f46e5, #10b981) !important;
+  transition: width 0.2s ease !important;
+}
+
+.batch-progress-labels {
+  display: flex !important;
+  justify-content: space-between !important;
+  font-size: 10.5px !important;
+  color: #94a3b8 !important;
+}
+
+/* Rodapé */
+.batch-panel-footer {
+  text-align: center !important;
+  color: #64748b !important;
+  font-size: 10px !important;
+  padding-top: 2px !important;
+}
+
+/* Modo Minimizador */
+#batch-clicker-panel.batch-panel-minimized .batch-panel-content {
+  display: none !important;
+}
+
+#batch-clicker-panel.batch-panel-minimized {
+  width: auto !important;
+  min-width: 200px !important;
+}
+
+.batch-hidden {
+  display: none !important;
+}
