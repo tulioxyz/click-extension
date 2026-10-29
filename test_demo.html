@@ -246,7 +246,7 @@
           </tr>
         </thead>
         <tbody id="table-body">
-          <!-- As linhas são geradas dinamicamente com 16 pessoas reais -->
+          <!-- As linhas são geradas dinamicamente com 16 pessoas fictícias -->
         </tbody>
       </table>
 
@@ -275,22 +275,22 @@
 
 <script>
   const users = [
-    { name: "Carlos Roberto de Oliveira", email: "carlos.oliveira@ifam.edu.br", role: "Gestores", color: "c1", init: "CR" },
-    { name: "Carlos Simões", email: "carlos.machado@mma.gov.br", role: "Palestrantes", color: "c2", init: "CS" },
-    { name: "Carolina Mary Medeiros", email: "carolinamedeiros@cp2.g12.br", role: "Gestores", color: "c3", init: "CM" },
-    { name: "Cássio Viana Santos", email: "kmviana@ifba.edu.br", role: "Gestores", color: "c4", init: "CV" },
-    { name: "Charles Okama de Souza", email: "charlessouza@mec.gov.br", role: "Gestores", color: "c5", init: "CO" },
-    { name: "Chirlaine Cristine Goncalves", email: "chirlaine.cristine@ifs.edu.br", role: "Gestores", color: "c6", init: "CC" },
-    { name: "Christiane Pereira dos Santos", email: "christiane.santos@inss.gov.br", role: "Avaliadores", color: "c7", init: "CP" },
-    { name: "Daniela Ramos Albuquerque", email: "daniela.ramos@ufmg.br", role: "Palestrantes", color: "c8", init: "DR" },
-    { name: "Eduardo Farias Brandão", email: "eduardo.farias@fiocruz.br", role: "Gestores", color: "c1", init: "EF" },
-    { name: "Fabiana Toledo Barreto", email: "fabiana.barreto@unb.br", role: "Palestrantes", color: "c2", init: "FT" },
-    { name: "Gabriel Monteiro Lima", email: "gabriel.lima@embrapa.br", role: "Gestores", color: "c3", init: "GM" },
-    { name: "Helena Castro Guimarães", email: "helena.castro@mctic.gov.br", role: "Avaliadores", color: "c4", init: "HC" },
-    { name: "Igor Vasconcelos Brito", email: "igor.brito@ufrj.br", role: "Gestores", color: "c5", init: "IV" },
-    { name: "Juliana Mendes Peixoto", email: "juliana.peixoto@ibama.gov.br", role: "Palestrantes", color: "c6", init: "JM" },
-    { name: "Lucas Antunes Silveira", email: "lucas.silveira@receita.fazenda.gov.br", role: "Gestores", color: "c7", init: "LA" },
-    { name: "Mariana Costa Bezerra", email: "mariana.costa@anvisa.gov.br", role: "Avaliadores", color: "c8", init: "MC" }
+    { name: "Ana Clara Silveira", email: "ana.silveira@exemplo.com", role: "Gestores", color: "c1", init: "AC" },
+    { name: "Bruno Henrique Dias", email: "bruno.dias@exemplo.com", role: "Palestrantes", color: "c2", init: "BD" },
+    { name: "Camila Duarte Rocha", email: "camila.rocha@exemplo.com", role: "Gestores", color: "c3", init: "CR" },
+    { name: "Diego Martins Fonseca", email: "diego.fonseca@exemplo.com", role: "Gestores", color: "c4", init: "DF" },
+    { name: "Eduarda Lima Vasconcelos", email: "eduarda.lima@exemplo.com", role: "Gestores", color: "c5", init: "EL" },
+    { name: "Felipe Augusto Nogueira", email: "felipe.nogueira@exemplo.com", role: "Gestores", color: "c6", init: "FN" },
+    { name: "Gabriela Torres Pires", email: "gabriela.pires@exemplo.com", role: "Avaliadores", color: "c7", init: "GP" },
+    { name: "Henrique Bastos Prado", email: "henrique.prado@exemplo.com", role: "Palestrantes", color: "c8", init: "HP" },
+    { name: "Isabela Ferreira Ramos", email: "isabela.ramos@exemplo.com", role: "Gestores", color: "c1", init: "IR" },
+    { name: "João Pedro Cavalcanti", email: "joao.cavalcanti@exemplo.com", role: "Palestrantes", color: "c2", init: "JC" },
+    { name: "Larissa Moura Guimarães", email: "larissa.moura@exemplo.com", role: "Gestores", color: "c3", init: "LM" },
+    { name: "Mateus Ribeiro Neves", email: "mateus.neves@exemplo.com", role: "Avaliadores", color: "c4", init: "MN" },
+    { name: "Natália Siqueira Campos", email: "natalia.campos@exemplo.com", role: "Gestores", color: "c5", init: "NC" },
+    { name: "Otávio Barcellos Furtado", email: "otavio.furtado@exemplo.com", role: "Palestrantes", color: "c6", init: "OF" },
+    { name: "Patrícia Gomes Alencar", email: "patricia.alencar@exemplo.com", role: "Gestores", color: "c7", init: "PA" },
+    { name: "Rodrigo Toledo Cardoso", email: "rodrigo.cardoso@exemplo.com", role: "Avaliadores", color: "c8", init: "RC" }
   ];
 
   const tbody = document.getElementById('table-body');
